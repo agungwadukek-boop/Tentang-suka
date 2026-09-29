@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SUKA Premium Final</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <a href="https://wa.me/6285701029512"
+class="wa-float"
+target="_blank">
+
+<img src="img/whatsapp.png" alt="WhatsApp">
+
+</a>
+<header class="navbar">
+
+<div class="logo-area">
+    <img src="img/logo.png" class="logo">
+</div>
+
+<nav>
+    <a href="#">Beranda</a>
+    <a href="#menu">Menu</a>
+    <a href="#keberlanjutan">Keberlanjutan</a>
+    <a href="#tentang">Tentang Kami</a>
+</nav>
+
+<a href="https://wa.me/6285701029512" class="btn-wa">
+    Pesan Sekarang
+</a>
+
+</header>
+
+<section class="hero fade" id="beranda">
+
+<img src="img/hero.jpg" class="hero-bg">
+
+<div class="hero-text">
+
+<h1>Suka Itu,<br><span>Sederhana.</span></h1>
+
+<p>Ragam Sajian & Karya Indonesia.</p>
+
+<a href="#menu" class="hero-btn">
+Lihat Menu
+</a>
+
+</div>
+
+</section>
+
+<section class="menu-section fade" id="menu">
+
+<div class="container">
+
+<h2 class="section-title">
+Lini Produk SUKA
+</h2>
+
+<div class="kategori">
+<button onclick="filterMenu('all')">Semua</button>
+<button onclick="filterMenu('kopi')">Kopi</button>
+<button onclick="filterMenu('nonkopi')">Non Kopi</button>
+<button onclick="filterMenu('alasuka')">Ala SUKA</button>
+</div>
+
+<div class="slider" id="menuSlider">
+
+<div class="card kopi">
+<img src="img/kopiAren.jpg" class="menu-img">
+<div class="card-body">
+<h3>Kopi Susu Aren</h3>
+</div>
+</div>
+
+<div class="card kopi">
+<img src="img/kopicreamy.jpg" class="menu-img">
+<div class="card-body">
+<h3>Kopi Susu Creamy</h3>
+</div>
+</div>
+
+<div class="card nonkopi">
+<img src="img/tapearen.jpg" class="menu-img">
+<div class="card-body">
+<h3>Tape Aren</h3>
+</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="keberlanjutan fade" id="keberlanjutan">
+
+<h2 class="section-title">Keberlanjutan</h2>
+
+<div class="slider-wrapper">
+
+<button class="nav prev" onclick="slideLeft()">❮</button>
+
+<div class="slider-panorama" id="panorama">
+
+<img src="img/doc1.jpg">
+<img src="img/doc2.jpg">
+<img src="img/doc3.jpg">
+<img src="img/doc4.jpg">
+
+</div>
+
+<button class="nav next" onclick="slideRight()">❯</button>
+
+</div>
+
+</section>
+
+<section class="about fade" id="tentang">
+
+<div class="about-container">
+
+<img src="img/toko.png" class="about-img">
+
+<div class="about-text">
+
+<h2>Tentang SUKA</h2>
+
+<p>
+SUKA hadir dari semangat petani lokal Batur
+untuk menghadirkan kopi dan minuman berkualitas
+dengan cita rasa Indonesia.
+</p>
+
+<p>
+📍 Jl. Raya Batur RT 02 RW 08
+</p>
+
+<p>
+📱 0857-0102-9512
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const slider = document.getElementById("panorama");
+
+function slideLeft(){
+    slider.scrollBy({
+        left:-320,
+        behavior:"smooth"
+    });
+}
+
+function slideRight(){
+    slider.scrollBy({
+        left:320,
+        behavior:"smooth"
+    });
+}
+
+</script>
+<script>
+
+const menuSlider =
+document.getElementById("menuSlider");
+
+function slideMenuLeft(){
+    menuSlider.scrollBy({
+        left:-320,
+        behavior:"smooth"
+    });
+}
+
+function slideMenuRight(){
+    menuSlider.scrollBy({
+        left:320,
+        behavior:"smooth"
+    });
+}
+
+function filterMenu(category){
+
+const cards =
+document.querySelectorAll("#menuSlider .card");
+
+cards.forEach(card=>{
+
+if(category==="all"){
+card.style.display="block";
+}
+else if(card.classList.contains(category)){
+card.style.display="block";
+}
+else{
+card.style.display="none";
+}
+
+});
+
+}
+
+</script>
+<script>
+
+const fades = document.querySelectorAll(".fade");
+
+function showFade(){
+    fades.forEach(item=>{
+        const top = item.getBoundingClientRect().top;
+
+        if(top < window.innerHeight - 100){
+            item.classList.add("show");
+        }
+    });
+}
+
+window.addEventListener("load", showFade);
+window.addEventListener("scroll", showFade);
+</script>
+
+<button id="topBtn" onclick="topFunction()">
+↑
+</button>
+<script>
+
+const topBtn = document.getElementById("topBtn");
+
+window.onscroll = function(){
+
+    if(document.documentElement.scrollTop > 300){
+        topBtn.style.display="block";
+    }else{
+        topBtn.style.display="none";
+    }
+
+}
+
+function topFunction(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+</body>
+</html>
